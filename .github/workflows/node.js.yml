@@ -19,7 +19,15 @@ jobs:
           cache-dependency-path: 'WebApp/package-lock.json'
       - run: npm --prefix ./WebApp ci
       - run: npm --prefix ./WebApp run build 
-      - name: Deploy Page
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Archive build
+        if: success()
+        uses: actions/upload-artifact@v1
         with:
-          folder: WebApp/dist/web-app/browser
+          name: deploy_dist
+          path: dist
+      - name: Archive code coverage result
+        if: success()
+        uses: actions/upload-artifact@v1
+        with:
+          name: deploy_coverage
+          path: coverage
