@@ -17,9 +17,11 @@ jobs:
         with:
           # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
           cache-dependency-path: 'WebApp/package-lock.json'
+      - name: Build
       - run: npm --prefix ./WebApp install
       - run: npm --prefix ./WebApp run build 
-      - name: Deploy 🚀
+      - name: Deploy Page
         uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public
