@@ -22,4 +22,4 @@ jobs:
       - name: Deploy Page
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/web-app
+          folder: WebApp/dist/web-app
