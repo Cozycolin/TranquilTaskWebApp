@@ -18,6 +18,6 @@ jobs:
           # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
           cache-dependency-path: 'WebApp/package-lock.json'
       - run: cd WebApp
-      - run: npm install
+      - run: npm ci
       - run: npm run build 
       - run: mv dist docs
