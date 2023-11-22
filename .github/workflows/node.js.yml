@@ -20,6 +20,6 @@ jobs:
       - run: npm --prefix ./WebApp install
       - run: npm --prefix ./WebApp run build 
       - name: Deploy 🚀
-        uses: Cozycolin/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
           folder: build
